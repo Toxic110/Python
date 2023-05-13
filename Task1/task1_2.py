@@ -1,0 +1,12 @@
+print("Введите стадии развития человека по порядку")
+a = input()
+b = input()
+c = input()
+d = input()
+e = input()
+f = input()
+g = input()
+h = input()
+i = input()
+
+print(a, b, c, d, e, f, g, h, i, sep="=>")
