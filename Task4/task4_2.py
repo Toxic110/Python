@@ -1,6 +1,7 @@
 a = 46275
-b = [int(i) for i in str(a)][3] ** [int(i) for i in str(a)][4]
-c = b * [int(i) for i in str(a)][2]
-d = c / ([int(i) for i in str(a)][0] - [int(i) for i in str(a)][1])
+massNumbers = [int(i) for i in str(a)]
+b = massNumbers[3] ** massNumbers[4]
+c = b * massNumbers[2]
+d = c / (massNumbers[0] - massNumbers[1])
 
 print(d)
