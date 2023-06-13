@@ -1,19 +1,14 @@
 m = int(input('m = '))
 n = int(input('n = '))
-a = []
-b = []
-for i in range(n):
-    a.append(int(input('mass = ')))
+boats = 0
 
-for x in range(len(a)):
-    if a[x] + min(a) <= m:
-        b += [[a[x], min(a)]]
-        a[x] += m
-        a[a.index(min(a))] += m
-    else:
-        if a[x] > m:
-            continue
-        else:
-            b += [[a[x]]]
-print(b)
-print('boats needed', len(b))
+t = sorted([int(input('mass = ')) for _ in range(n)], reverse=True)
+while len(t):
+    boats += 1
+    k = m - t.pop(0)
+    for i in range(len(t)):
+        if t[i] <= k:
+            t.pop(i)
+            break
+
+print('boats needed', boats)
