@@ -9,11 +9,19 @@ pets[name]['Вид питомца'] = kind
 pets[name]['Возраст питомца'] = age
 pets[name]['Имя владельца'] = owner
 
-ageSuffix = ("год" if 11 <= age <= 19 or age % 10 == 1 else
-             "года" if 2 <= age % 10 <= 4 else
-             "лет")
+
+def ageSuffix(age):
+    return {
+        age < 0: 'ошибка',
+        age % 10 == 0: 'лет',
+        age % 10 == 1: 'год',
+        age % 10 > 1 and age % 10 < 5: 'года',
+        age % 10 > 4: 'лет',
+        age % 100 > 10 and age % 100 < 20: 'лет'
+    }[True]
+
 
 print(next(iter(pets)))
 
 print('Это', pets[name]['Вид питомца'], 'по кличке', '"' +
-      next(iter(pets)) + '".', 'Возраст: ', pets[name]['Возраст питомца'], ageSuffix)
+      next(iter(pets)) + '".', 'Возраст: ', pets[name]['Возраст питомца'], ageSuffix(age))

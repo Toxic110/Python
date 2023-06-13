@@ -15,4 +15,5 @@ for x in range(len(a)):
             continue
         else:
             b += [[a[x]]]
+print(b)
 print('boats needed', len(b))

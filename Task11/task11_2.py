@@ -64,9 +64,14 @@ def get_pet(id):
 
 
 def get_suffix(age):
-    return ("год" if 11 <= age <= 19 or age % 10 == 1 else
-            "года" if 2 <= age % 10 <= 4 else
-            "лет")
+    return {
+        age < 0: 'ошибка',
+        age % 10 == 0: 'лет',
+        age % 10 == 1: 'год',
+        age % 10 > 1 and age % 10 < 5: 'года',
+        age % 10 > 4: 'лет',
+        age % 100 > 10 and age % 100 < 20: 'лет'
+    }[True]
 
 
 def pets_list():
